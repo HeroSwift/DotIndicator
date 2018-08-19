@@ -61,6 +61,10 @@ public class DotIndicator: UIView {
             return
         }
         
+        if (count <= 0) {
+            return
+        }
+        
         let centerY = Int(frame.height / 2)
         
         var startX = (Int(frame.width) - contentWidth) / 2
