@@ -61,7 +61,7 @@ public class DotIndicator: UIView {
             return
         }
         
-        if (count <= 0) {
+        if count <= 0 {
             return
         }
         
