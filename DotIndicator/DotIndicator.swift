@@ -36,7 +36,7 @@ public class DotIndicator: UIView {
         return CGSize(width: contentWidth, height: contentHeight)
     }
     
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
     }
