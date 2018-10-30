@@ -7,7 +7,11 @@ public class DotIndicator: UIView {
     public var index = 0
     
     // 总页数
-    public var count = 0
+    public var count = 0 {
+        didSet {
+            invalidateIntrinsicContentSize()
+        }
+    }
     
     // 默认颜色
     public var color = UIColor(red: 210 / 255, green: 210 / 255, blue: 210 / 255, alpha: 1)
@@ -16,13 +20,25 @@ public class DotIndicator: UIView {
     public var activeColor = UIColor.white
     
     // 默认半径
-    public var radius = 3.0
+    public var radius = 3.0 {
+        didSet {
+            invalidateIntrinsicContentSize()
+        }
+    }
     
     // 当前页半径
-    public var activeRadius = 3.5
+    public var activeRadius = 3.5 {
+        didSet {
+            invalidateIntrinsicContentSize()
+        }
+    }
     
     // 圆点的间距
-    public var gap = 4.0
+    public var gap = 4.0 {
+        didSet {
+            invalidateIntrinsicContentSize()
+        }
+    }
     
     private var contentWidth: Double {
         let interval = Double(count - 1)
@@ -48,11 +64,7 @@ public class DotIndicator: UIView {
     }
     
     private func setup() {
-        backgroundColor = UIColor.clear
-    }
-    
-    public override func sizeToFit() {
-        frame = CGRect(origin: frame.origin, size: CGSize(width: contentWidth, height: contentHeight))
+        backgroundColor = .clear
     }
     
     public override func draw(_ rect: CGRect) {
