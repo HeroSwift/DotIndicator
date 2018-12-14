@@ -55,22 +55,16 @@ public class DotIndicator: UIView {
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
-        setup()
-    }
-    
-    public required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setup()
-    }
-    
-    private func setup() {
         backgroundColor = .clear
     }
     
+    public required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     public override func draw(_ rect: CGRect) {
-        
-        let currentContext = UIGraphicsGetCurrentContext()
-        guard let context = currentContext else {
+
+        guard let context = UIGraphicsGetCurrentContext() else {
             return
         }
         
@@ -82,8 +76,9 @@ public class DotIndicator: UIView {
         
         var startX = (Double(frame.width) - contentWidth) / 2
         var dotIndex = 0
-        var dotRadius = 0.0
-        var dotColor = UIColor.white
+        
+        var dotRadius: Double
+        var dotColor: UIColor
         
         while dotIndex < count {
             
